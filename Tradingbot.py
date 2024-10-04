@@ -3,10 +3,12 @@ import json
 from json import dumps
 from coinbase.websocket import WSClient
 import time
+from dotenv import load_dotenv
+import os
 
-api_key = "organizations/0eaca027-a715-4549-bada-629c487e301b/apiKeys/9ad625c0-c118-41fb-9b1c-af302f72543e"
-api_secret = "-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEIHun1+c0389CZougbNwfNlg8AVqwnuh484ORvsMVimVyoAoGCCqGSM49\nAwEHoUQDQgAEpAXteILICcCNQutzGFNOFMZPMukc2gvvVci8Y7W51l2coCar2GwZ\nMXj1BIinyzRpiDpxfGDAV/vp+7ZKzmczwg==\n-----END EC PRIVATE KEY-----\n"
-
+load_dotenv()
+api_key = os.getenv("API_KEY")
+api_secret = os.getenv("API_SECRET")
 client = RESTClient(api_key=api_key, api_secret=api_secret)
 
 lowest_price = float('inf')  # Initialize to a high value
