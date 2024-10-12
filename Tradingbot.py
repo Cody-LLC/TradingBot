@@ -11,6 +11,9 @@ api_key = os.getenv("API_KEY")
 api_secret = os.getenv("API_SECRET")
 client = RESTClient(api_key=api_key, api_secret=api_secret)
 
+print(f"API Key Length: {len(api_key)}")
+print(f"API Secret Length: {len(api_secret)}")
+
 lowest_price = float('inf')  # Initialize to a high value
 last_print_time = 0           # Time of the last print
 
@@ -37,5 +40,6 @@ ws_client = WSClient(api_key=api_key, api_secret=api_secret, on_message=on_messa
 ws_client.open()
 ws_client.subscribe(["BTC-USD"], ["ticker"])
 ws_client.run_forever_with_exception_check()
+#ts
 
 
